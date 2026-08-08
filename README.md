@@ -1,7 +1,6 @@
 # punc-lc3
 
-A **16-bit LC-3 processor implemented in Verilog** — PUnC, for "Pretty
-Uncomplicated Computer." It's a multi-cycle CPU built from scratch at the RTL
+A **16-bit LC-3 processor implemented in Verilog** — PUnC, for "Princeton University Computer." It's a multi-cycle CPU built from scratch at the RTL
 level: a control FSM, a datapath, and a memory hierarchy, running real compiled
 LC-3 programs out of a 1024-word memory.
 
