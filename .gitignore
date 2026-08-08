@@ -1,0 +1,8 @@
+# Simulation build products
+*.vvp
+*.vcd
+*.out
+
+# Python
+__pycache__/
+*.pyc
