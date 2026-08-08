@@ -151,4 +151,4 @@ and asserts against expected register and memory contents.
 
 ## Credits
 
-Built with Rishabh as a two-person course project.
+Built with Rishabh Jain as a two-person course project.
