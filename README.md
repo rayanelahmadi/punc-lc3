@@ -36,24 +36,15 @@ encodings shared between them via `Defines.v`. This is the standard
 decomposition for a multi-cycle CPU, and it keeps the sequencing logic
 readable independently of the wiring it drives.
 
-```
-                  ┌──────────────────┐
-                  │   PUnCControl    │   FSM: INIT → FETCH → DECODE
-                  │  (control FSM)   │        → EXECUTE → [EXECUTE_I] → …
-                  └────────┬─────────┘                        │
-              control      │      ▲  ir, condition flags      │
-              signals      ▼      │                           ▼
-                  ┌──────────────────┐                   STATE_HALT
-                  │  PUnCDatapath    │
-                  │  PC · IR · ALU   │
-                  │  adder · muxes   │
-                  └───┬──────────┬───┘
-                      │          │
-              ┌───────▼───┐  ┌───▼──────────┐
-              │  Memory   │  │ RegisterFile │
-              │ 1024 × 16 │  │    8 × 16    │
-              └───────────┘  └──────────────┘
-```
+The datapath was drawn out in full before any Verilog was written — every mux,
+bus width, and control line below corresponds to a signal in
+`PUnCDatapath.v`:
+
+![PUnC datapath schematic](docs/datapath.png)
+
+The complete design document, including the annotated factorial program and a
+C reference implementation of the algorithm it computes, is in
+[`docs/PUnC-design-document.pdf`](docs/PUnC-design-document.pdf).
 
 ### Control FSM
 
@@ -154,3 +145,10 @@ and asserts against expected register and memory contents.
 | `tests/` | LC-3 assembly source for the test programs |
 | `images/` | Assembled `.vmh` images loaded by the testbench |
 | `tools/asm.py` | Minimal LC-3 assembler used to build the images |
+| `docs/` | Datapath schematic and the full design document |
+
+---
+
+## Credits
+
+Built with Rishabh as a two-person course project.
